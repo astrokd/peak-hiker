@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Peak Hiker',
     description:
-      'This is a web site about great pikes hikes in the Pacific NorthWest.',
+      'This is a web site about great pikes hikes in the Pacific NorthWest and elsewhere.',
     author: 'astroKD',
   },
   plugins: [
