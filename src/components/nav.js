@@ -23,7 +23,7 @@ const Nav = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
                 <Dropdown.Item><Link to="/">Home</Link></Dropdown.Item>
-                <Dropdown.Item><Link to="/page-2">Page 2</Link></Dropdown.Item>
+                <Dropdown.Item><Link to="/info">Info</Link></Dropdown.Item>
                 <Dropdown.Item>Something else</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
