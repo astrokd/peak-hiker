@@ -8,9 +8,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Container from 'react-bootstrap/Container'
 
 const Header = ({ siteTitle }) => (
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
   <Container>
-  <Navbar.Brand href="#home">{siteTitle}</Navbar.Brand>
+  <Navbar.Brand><Link to="/" activeStyle={{ color: "white" }}>{siteTitle}</Link></Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
