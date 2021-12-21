@@ -2,11 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { Link } from 'gatsby'
 
-// import Dropdown from 'react-bootstrap/Button'
-
-import Header from './header'
 import HeaderNav from './headernav'
 import './layout.css'
 
