@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-// import Dropdown from 'react-bootstrap/Button'
-
-import Header from './header'
+import HeaderNav from './headernav'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -29,7 +27,7 @@ const Layout = ({ children }) => (
             crossOrigin="anonymous"
             />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <HeaderNav siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
             margin: '0 auto',
