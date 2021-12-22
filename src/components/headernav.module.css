@@ -1,0 +1,11 @@
+.navLink {
+    color: white;
+    text-decoration: none;
+}
+.activeNavLink {
+    color: thistle;
+}
+.navBrand {
+    color: white;
+    text-decoration: none;
+}
