@@ -7,21 +7,27 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Container from 'react-bootstrap/Container'
 
+import * as navStyles from "./headernav.module.css"
+
 const Header = ({ siteTitle }) => (
-  <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+  <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "DarkBlue" }} variant="dark">
   <Container>
-  <Navbar.Brand><Link to="/" style={{ color: "white" }}>{siteTitle}</Link></Navbar.Brand>
+  <Navbar.Brand>
+    <Link to="/" className={navStyles.navBrand}>
+      {siteTitle}
+    </Link>
+  </Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
-      <Nav.Link><Link to="/" activeStyle={{ color: "red" }} style={{ color: "white" }}>Home</Link></Nav.Link>
-      <Nav.Link><Link to="/info" activeStyle={{ color: "red" }} style={{ color: "white" }}>Info</Link></Nav.Link>
+      <Nav.Link><Link to="/" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>Home</Link></Nav.Link>
+      <Nav.Link><Link to="/info" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>Info</Link></Nav.Link>
       <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.1">Peak Hikes</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Guide</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">The Essentials</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.4">Blog</NavDropdown.Item>
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
