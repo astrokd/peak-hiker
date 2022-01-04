@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => (
       <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Peak Hikes</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Guide</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">The Essentials</NavDropdown.Item>
+        <NavDropdown.Item href="/essentials">The Essentials</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Blog</NavDropdown.Item>
       </NavDropdown>
