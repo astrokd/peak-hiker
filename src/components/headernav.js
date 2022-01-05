@@ -21,9 +21,13 @@ const Header = ({ siteTitle }) => (
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
       <Nav.Link><Link to="/" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>Home</Link></Nav.Link>
-      <Nav.Link><Link to="/info" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>Info</Link></Nav.Link>
-      <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Peak Hikes</NavDropdown.Item>
+      <Nav.Link><Link to="/about" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>About</Link></Nav.Link>
+      <NavDropdown title="Hikes" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="/peakhikes">Peak Hikes</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Mnt Si</NavDropdown.Item>
+        <NavDropdown.Item href="/essentials">Mailbox</NavDropdown.Item>
+      </NavDropdown>
+      <NavDropdown title="Blog" id="collasible-nav-dropdown">
         <NavDropdown.Item href="#action/3.2">Guide</NavDropdown.Item>
         <NavDropdown.Item href="/essentials">The Essentials</NavDropdown.Item>
         <NavDropdown.Divider />
