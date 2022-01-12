@@ -4,7 +4,7 @@ type: main
 ---
 
 import { Link } from 'gatsby'
-
+import { StaticImage } from "gatsby-plugin-image"
 import Layout from '../components/layout'
 import Image from '../components/image'
 import SEO from '../components/seo'
@@ -16,6 +16,8 @@ import SEO from '../components/seo'
 
 This is a blog about great pikes hikes in the Pacific North West and anywhere else great peaks can be found.
 
-<div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-  <Image />
-</div>
+
+<StaticImage src="../images/peak-hikes.png"
+  alt="view from a mountain peak"
+  placeholder="blurred"
+/>
