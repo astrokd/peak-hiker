@@ -1,21 +1,23 @@
 import React from 'react'
-import { StaticImage } from "gatsby-plugin-image"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import PropTypes from 'prop-types'
 
-const Image = () => {
+const Image = ({ children }) => {
     return (
       <Container>
         <Row>
           <Col>
-            <StaticImage src='../images/peak-hikes.png' 
-              alt="view from a mountain peak"
-              placeholder="blurred"
-            />
+            {children}
           </Col>
         </Row>
       </Container>
     )
 }
+
+Image.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
 export default Image
