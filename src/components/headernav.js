@@ -24,14 +24,14 @@ const Header = ({ siteTitle }) => (
       <Nav.Link><Link to="/about" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>About</Link></Nav.Link>
       <NavDropdown title="Hikes" id="collasible-nav-dropdown">
         <NavDropdown.Item href="/peakhikes">Peak Hikes</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Mnt Si</NavDropdown.Item>
-        <NavDropdown.Item href="/essentials">Mailbox</NavDropdown.Item>
+        <NavDropdown.Item href="/mountsi">Mnt Si</NavDropdown.Item>
+        <NavDropdown.Item href="/mailbox">Mailbox</NavDropdown.Item>
       </NavDropdown>
       <NavDropdown title="Blog" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.2">Guide</NavDropdown.Item>
+        <NavDropdown.Item href="/guide">Guide</NavDropdown.Item>
         <NavDropdown.Item href="/essentials">The Essentials</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Blog</NavDropdown.Item>
+        <NavDropdown.Item href="/blog">Blog</NavDropdown.Item>
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
