@@ -18,3 +18,9 @@ Using React-Bootstrap
           |-------- Essentials
           |-------- Guide
           |-------- ...
+
+## Adding Images
+
+Found problem with some smaller images not loading, need to come up with a way to work.
+
+[Using the Gatsby Image plugin](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image)
