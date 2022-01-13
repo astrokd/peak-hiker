@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: 'Peak Hiker',
+    title: 'PEAK HIKER',
     description:
       'This is a web site about great pikes hikes in the Pacific NorthWest and elsewhere.',
     author: 'astroKD',
