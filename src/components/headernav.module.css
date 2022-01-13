@@ -2,8 +2,12 @@
     color: white;
     text-decoration: none;
 }
+.navMenuLink {
+    color: black;
+    text-decoration: none;
+}
 .activeNavLink {
-    color: lightpink;
+    color: darkorange;
 }
 .navBrand {
     color: white;

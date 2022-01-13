@@ -19,19 +19,19 @@ const Header = ({ siteTitle }) => (
   </Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto">
-      <Nav.Link><Link to="/" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>Home</Link></Nav.Link>
-      <Nav.Link><Link to="/about" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>About</Link></Nav.Link>
+    <Nav className="me-auto text-end px-4">
+      <Nav.Item className="py-2"><Link to="/" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>Home</Link></Nav.Item>
+      <Nav.Item className="py-2"><Link to="/about" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>About</Link></Nav.Item>
       <NavDropdown title="Hikes" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="/peakhikes">Peak Hikes</NavDropdown.Item>
-        <NavDropdown.Item href="/mountsi">Mnt Si</NavDropdown.Item>
-        <NavDropdown.Item href="/mailbox">Mailbox</NavDropdown.Item>
+        <Nav.Item><Link to="/peakhikes" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Peak Hikes</Link></Nav.Item>
+        <Nav.Item><Link to="/mountsi" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mount Si</Link></Nav.Item>
+        <Nav.Item><Link to="/mailbox" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mailbox</Link></Nav.Item>
       </NavDropdown>
       <NavDropdown title="Blog" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="/guide">Guide</NavDropdown.Item>
-        <NavDropdown.Item href="/essentials">The Essentials</NavDropdown.Item>
+        <Nav.Item><Link to="/guide" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Guide</Link></Nav.Item>
+        <Nav.Item><Link to="/essentials" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>The Essentials</Link></Nav.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="/blog">Blog</NavDropdown.Item>
+        <Nav.Item><Link to="/blog" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Blog</Link></Nav.Item>
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
