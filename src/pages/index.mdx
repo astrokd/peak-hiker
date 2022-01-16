@@ -8,6 +8,8 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from '../components/layout'
 import Image from '../components/image'
 import SEO from '../components/seo'
+import { graphql } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 
 <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
 
@@ -17,4 +19,17 @@ import SEO from '../components/seo'
 This is a blog about great pikes hikes in the Pacific North West and anywhere else great peaks can be found.
 
 
-<Image />
+<Image img={props.data} alt="Mount Rainer" description="View of a mountain top" />
+
+export const query = graphql`
+  {
+    mountainImage: file(
+      name: {eq: "mountrainer"}
+      ) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    }
+  }
+`
