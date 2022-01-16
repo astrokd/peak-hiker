@@ -8,8 +8,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const Image = ( data ) => {
-  console.log("Image")
-  console.log(data)
     return (
       <Container>
         <Row>
