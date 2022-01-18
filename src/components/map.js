@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import { env } from 'process';
-import * as mapStyles from "./headernav.module.css"
+import * as mapStyles from "./map.module.css"
 import PropTypes from 'prop-types';
 
 // mapboxgl.accessToken = env.REACT_APP_API_KEY1
@@ -14,6 +14,7 @@ export default function Map(props) {
     const [lng, setLng] = useState(props.Lng);
     const [lat, setLat] = useState(props.Lat);
     const [zoom, setZoom] = useState(14);
+    console.log("env: " + env.REACT_APP_API_KEY1)
     
     useEffect(() => {
         if (map.current) return; // initialize map only once
@@ -38,13 +39,13 @@ export default function Map(props) {
       });
 
     return (
-        <div>
-            <div className={mapStyles.sidebar}>
-            { props.title }:<br />
-            Lng: {lng} | Lat: {lat}
-            </div>
-            <div ref={mapContainer} className={mapStyles.mapcontainer} />
-        </div>
+                <div>
+                    <div className={mapStyles.sidebar}>
+                    { props.title }:<br />
+                    Lng: {lng} | Lat: {lat}
+                    </div>
+                    <div ref={mapContainer} className={mapStyles.mapcontainer} />
+                </div>
     );
 }
 

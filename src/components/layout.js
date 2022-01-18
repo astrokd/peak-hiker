@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Container from 'react-bootstrap/Container'
+import ReactDOM from 'react-dom';
 
 import HeaderNav from './headernav'
 import './layout.css'
@@ -37,7 +38,11 @@ const Layout = ({ children }) => (
         <HeaderNav siteTitle={data.site.siteMetadata.title} />
         <Container>
           {children}
+          <React.StrictMode>
+            <div id="root"></div>
+          </React.StrictMode>
         </Container>
+        <script src='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.js'></script>
       </>
     )}
   />

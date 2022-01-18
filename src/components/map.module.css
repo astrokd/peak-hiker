@@ -1,6 +1,8 @@
 .mapcontainer {
+    display: inline;
     height: 400px;
     width: 80%;
+    margin-bottom: 400px;
   }
 
 .sidebar {
