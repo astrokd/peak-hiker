@@ -4,8 +4,7 @@ import * as mapStyles from "./map.module.css"
 import PropTypes from 'prop-types';
 
 const apikey = process.env.GATSBY_API_KEY1
-console.log("apikey: " + apikey)
-mapboxgl.accessToken = "pk.eyJ1Ijoia2V2ZWsiLCJhIjoiM1JGdUlrOCJ9.E7X4iXStstLb_AzfjxAqLg"
+mapboxgl.accessToken = `${apikey}`
 
 export default function Map(props) {
     const mapContainer = useRef(null);
@@ -38,13 +37,13 @@ export default function Map(props) {
       });
 
     return (
-                <div>
-                    <div className={mapStyles.sidebar}>
-                    { props.title }:<br />
-                    Lng: {lng} | Lat: {lat}
-                    </div>
-                    <div ref={mapContainer} className={mapStyles.mapcontainer} />
+            <div>
+                <div className={mapStyles.sidebar}>
+                { props.title }:<br />
+                Lng: {lng} | Lat: {lat}
                 </div>
+                <div ref={mapContainer} className={mapStyles.mapcontainer} />
+            </div>
     );
 }
 
