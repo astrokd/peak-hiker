@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import { env } from 'process';
 import * as mapStyles from "./map.module.css"
 import PropTypes from 'prop-types';
 
-// mapboxgl.accessToken = env.REACT_APP_API_KEY1
+const apikey = process.env.GATSBY_API_KEY1
+console.log("apikey: " + apikey)
 mapboxgl.accessToken = "pk.eyJ1Ijoia2V2ZWsiLCJhIjoiM1JGdUlrOCJ9.E7X4iXStstLb_AzfjxAqLg"
 
 export default function Map(props) {
@@ -14,7 +14,6 @@ export default function Map(props) {
     const [lng, setLng] = useState(props.Lng);
     const [lat, setLat] = useState(props.Lat);
     const [zoom, setZoom] = useState(14);
-    console.log("env: " + env.REACT_APP_API_KEY1)
     
     useEffect(() => {
         if (map.current) return; // initialize map only once
