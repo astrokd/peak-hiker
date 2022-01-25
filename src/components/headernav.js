@@ -25,6 +25,7 @@ const Header = ({ siteTitle }) => (
       <NavDropdown title="Hikes" id="collasible-nav-dropdown">
         <Nav.Item><Link to="/peakhikes" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Peak Hikes</Link></Nav.Item>
         <Nav.Item><Link to="/mountsi" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mount Si</Link></Nav.Item>
+        <Nav.Item><Link to="/mtteneriffe" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mt Teneriffe</Link></Nav.Item>
         <Nav.Item><Link to="/mailbox" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mailbox</Link></Nav.Item>
       </NavDropdown>
       <NavDropdown title="Blog" id="collasible-nav-dropdown">
