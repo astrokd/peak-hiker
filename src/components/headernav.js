@@ -20,19 +20,20 @@ const Header = ({ siteTitle }) => (
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto text-end px-4">
-      <Nav.Item className="py-2"><Link to="/" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>Home</Link></Nav.Item>
-      <Nav.Item className="py-2"><Link to="/about" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>About</Link></Nav.Item>
+      <Nav.Item className="p-2"><Link to="/" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>Home</Link></Nav.Item>
+      <Nav.Item className="p-2"><Link to="/about" activeClassName={navStyles.activeNavLink} className={navStyles.navLink}>About</Link></Nav.Item>
       <NavDropdown title="Hikes" id="collasible-nav-dropdown">
-        <Nav.Item><Link to="/peakhikes" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Peak Hikes</Link></Nav.Item>
-        <Nav.Item><Link to="/mountsi" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mount Si</Link></Nav.Item>
-        <Nav.Item><Link to="/mtteneriffe" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mt Teneriffe</Link></Nav.Item>
-        <Nav.Item><Link to="/mailbox" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mailbox</Link></Nav.Item>
+        <Nav.Item className="p-2 text-end"><Link to="/peakhikes" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Peak Hikes</Link></Nav.Item>
+        <NavDropdown.Divider />
+        <Nav.Item className="p-1 text-end"><Link to="/mountsi" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mount Si</Link></Nav.Item>
+        <Nav.Item className="p-1 text-end"><Link to="/mtteneriffe" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mt Teneriffe</Link></Nav.Item>
+        <Nav.Item className="p-1 text-end"><Link to="/mailbox" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mailbox</Link></Nav.Item>
       </NavDropdown>
       <NavDropdown title="Blog" id="collasible-nav-dropdown">
-        <Nav.Item><Link to="/guide" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Guide</Link></Nav.Item>
-        <Nav.Item><Link to="/essentials" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>The Essentials</Link></Nav.Item>
+        <Nav.Item className="p-2 text-end"><Link to="/blog" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Blog</Link></Nav.Item>
         <NavDropdown.Divider />
-        <Nav.Item><Link to="/blog" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Blog</Link></Nav.Item>
+        <Nav.Item className="p-1 text-end"><Link to="/guide" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Guide</Link></Nav.Item>
+        <Nav.Item className="p-1 text-end"><Link to="/essentials" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>The Essentials</Link></Nav.Item>
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
