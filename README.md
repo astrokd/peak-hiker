@@ -24,3 +24,9 @@ Using React-Bootstrap
 Found problem with some smaller images not loading, need to come up with a way to work.
 
 [Using the Gatsby Image plugin](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image)
+
+## Adding Mapbox map
+
+Adding a 3d map for each peak hike, used the below mapbox tutorial;
+
+[Use MapBox GL JS in a React app Tutorial](https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-react/)
