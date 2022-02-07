@@ -1,8 +1,9 @@
 .mapcontainer {
     display: inline;
-    height: 400px;
+    height: 600px;
     width: 80%;
     margin-bottom: 400px;
+    margin-left: 30px;;
   }
 
 .sidebar {
@@ -13,7 +14,7 @@
   z-index: 1;
   position: relative;
   top: 0;
-  left: 0;
+  left: 30px;
   margin: 12px;
   border-radius: 4px;
   width: 60%;
