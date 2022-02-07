@@ -27,6 +27,10 @@ const Layout = ({ children }) => (
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossOrigin="anonymous"
           />
+          <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css"
+            rel="stylesheet"
+          />
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta
