@@ -11,9 +11,12 @@ const Image = ( data ) => {
     return (
       <Container>
         <Row>
-          <Col>
+          <Col className="text-center">
             <h3>{ data.alt }</h3>
-            <GatsbyImage image={getImage(data.img.mountainImage.childImageSharp)} alt={data.alt}/>
+            <GatsbyImage 
+              image={getImage(data.img.mountainImage.childImageSharp)} 
+              alt={data.alt} 
+            />
             <p>{ data.description }</p>
           </Col>
         </Row>
