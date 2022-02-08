@@ -25,12 +25,15 @@ const Map = ( props ) => {
         <Row>
             <Col>
                 <Mapbox
-                    style="mapbox://styles/mapbox/streets-v8"
+                    style={mapstyle}
                     containerStyle={{
                         height: '80vh',
                         width: '80vw'
                     }}
+                    zoom = {[13]}
                     center={[lng, lat]}
+                    pitch={[60]}
+                    bearing={[10]}
                 >
                     <Layer>
                         <Feature coordinates={[lng, lat]} />
