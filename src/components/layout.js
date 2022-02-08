@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import Container from 'react-bootstrap/Container'
 
 import HeaderNav from './headernav'
+import Footer from './footer'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -43,6 +44,7 @@ const Layout = ({ children }) => (
           {children}
           <div id="root"></div>
         </Container>
+        <Footer />
         <script src='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.js'></script>
       </>
     )}
