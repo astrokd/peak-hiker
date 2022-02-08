@@ -20,6 +20,9 @@ const Map = ( props ) => {
     const mapstyle = props.mapstyle
     const lng = props.Lng;
     const lat = props.Lat;
+    const zoom = props.zoom || 13;
+    const pitch = props.pitch || 50;
+    const bearing = props.bearing || 30;
     return (
       <Container>
         <Row>
@@ -30,10 +33,10 @@ const Map = ( props ) => {
                         height: '80vh',
                         width: '80vw'
                     }}
-                    zoom = {[13]}
+                    zoom = {[zoom]}
                     center={[lng, lat]}
-                    pitch={[60]}
-                    bearing={[10]}
+                    pitch={[pitch]}
+                    bearing={[bearing]}
                 >
                     <Layer>
                         <Feature coordinates={[lng, lat]} />
@@ -100,4 +103,7 @@ Map.PropTypes = {
     mapstyle: PropTypes.string.isRequired,
     Lng: PropTypes.number.isRequired,
     Lat: PropTypes.number.isRequired,
+    zoom: PropTypes.number,
+    pitch: PropTypes.number,
+    bearing: PropTypes.number,
 }
