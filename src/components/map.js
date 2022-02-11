@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import MapboxGl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 import * as mapStyles from "./map.module.css"
 import PropTypes from 'prop-types';
@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col'
 
 const apikey = process.env.GATSBY_API_KEY1
 
-mapboxgl.accessToken = `${apikey}`
+MapboxGl.accessToken = `${apikey}`
 
 export default function Map(props) {
     const mapContainer = useRef(null);
@@ -25,14 +25,18 @@ export default function Map(props) {
     useEffect(() => {
         if (map.current) return; // initialize map only once
 
-        map.current = new mapboxgl.Map({
+        map.current = new MapboxGl.Map({
             container: mapContainer.current,
+            name: "peak",
             style: mapstyle,
             pitch: 45,
             bearing: 0,
             center: [lng, lat],
             zoom: zoom
         });
+        console.log("in useEffecrt " + map)
+        console.log(map)
+
     });
 
     useEffect(() => {
@@ -45,13 +49,17 @@ export default function Map(props) {
       });
 
     return (
-        <Container>
+        <Container 
+            style={{
+                height: "400px",
+            }}
+        >
             <Row>
-                <Col>
+                <Col className={mapStyles.mapcontainer}>
                     mapboxgl
                     <div className={mapStyles.sidebar}>
-                    { props.title }:<br />
-                    Lng: {lng} | Lat: {lat}
+                        { props.title }:<br />
+                        Lng: {lng} | Lat: {lat}
                     </div>
                     <div ref={mapContainer} className={mapStyles.mapcontainer} />
                 </Col>
