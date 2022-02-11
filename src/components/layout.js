@@ -42,7 +42,7 @@ const Layout = ({ children }) => (
         <HeaderNav siteTitle={data.site.siteMetadata.title} />
         <Container>
           {children}
-          <div id="root"></div>
+          <div id="map"></div>
         </Container>
         <Footer />
         <script src='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.js'></script>
