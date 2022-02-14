@@ -34,8 +34,12 @@ export default function Map(props) {
             center: [lng, lat],
             zoom: zoom
         });
-        console.log("in useEffecrt " + map)
+        console.log("in useEffect " + map)
         console.log(map)
+        map.current.on('load', () => {
+            console.log('A load event occurred.');
+            map.current.resize();
+        });
 
     });
 
