@@ -42,9 +42,6 @@ const ReMap = ( props ) => {
                     pitch={[pitch]}
                     bearing={[bearing]}
                 >
-                    <Layer>
-                        <Feature coordinates={[lng, lat]} />
-                    </Layer>
                 </Mapbox>
           </Col>
         </Row>
