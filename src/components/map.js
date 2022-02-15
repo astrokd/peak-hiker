@@ -26,7 +26,7 @@ export default function Map(props) {
         if (map.current) return; // initialize map only once
 
         map.current = new MapboxGl.Map({
-            container: mapContainer.current,
+            container: 'map',
             name: "peak",
             style: mapstyle,
             pitch: 45,
@@ -59,7 +59,7 @@ export default function Map(props) {
             }}
         >
             <Row>
-                <Col className={mapStyles.mapcontainer}>
+                <Col id="map" className={mapStyles.mapcontainer}>
                     mapboxgl
                     <div className={mapStyles.sidebar}>
                         { props.title }:<br />
