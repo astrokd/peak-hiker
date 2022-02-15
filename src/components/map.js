@@ -20,17 +20,19 @@ export default function Map(props) {
     const mapstyle = props.mapstyle
     const [lng, setLng] = useState(props.Lng);
     const [lat, setLat] = useState(props.Lat);
-    const [zoom, setZoom] = useState(14);
+    const [zoom, setZoom] = useState(props.zoom || 14);
+    const pitch = props.pitch || 45;
+    const bearing = props.bearing || 0;
     
     useEffect(() => {
         if (map.current) return; // initialize map only once
 
         map.current = new MapboxGl.Map({
-            container: mapContainer.current,
+            container: 'map',
             name: "peak",
             style: mapstyle,
-            pitch: 45,
-            bearing: 0,
+            pitch: pitch,
+            bearing: bearing,
             center: [lng, lat],
             zoom: zoom
         });
@@ -48,7 +50,7 @@ export default function Map(props) {
         map.current.on('move', () => {
           setLng(map.current.getCenter().lng.toFixed(4));
           setLat(map.current.getCenter().lat.toFixed(4));
-          setZoom(map.current.getZoom().toFixed(2));
+          setZoom(map.current.getZoom().toFixed(12));
         });
       });
 
@@ -59,12 +61,10 @@ export default function Map(props) {
             }}
         >
             <Row>
-                <Col className={mapStyles.mapcontainer}>
-                    mapboxgl
-                    <div className={mapStyles.sidebar}>
-                        { props.title }:<br />
-                        Lng: {lng} | Lat: {lat}
-                    </div>
+                <Col>{ props.title }: Lng: {lng} | Lat: {lat}</Col>
+            </Row>
+            <Row>
+                <Col id="map" className={mapStyles.mapcontainer}>
                     <div ref={mapContainer} className={mapStyles.mapcontainer} />
                 </Col>
             </Row>
