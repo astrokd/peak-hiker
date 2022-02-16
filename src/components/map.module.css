@@ -1,20 +1,6 @@
 .mapcontainer {
     display: inline;
-    height: 350px;
+    height: 400px;
     width: 80%;
-    margin-left: 10px;
   }
 
-.sidebar {
-  background-color: rgba(35, 55, 75, 0.9);
-  color: #fff;
-  padding: 6px 6px;
-  font-family: monospace;
-  z-index: 1;
-  position: relative;
-  top: 240px;
-  left: 0px;
-  margin: 0px;
-  border-radius: 4px;
-  width: 230px;
-}

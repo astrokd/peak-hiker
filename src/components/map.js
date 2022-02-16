@@ -57,7 +57,7 @@ export default function Map(props) {
     return (
         <Container 
             style={{
-                height: "400px",
+                height: "480px",
             }}
         >
             <Row>
