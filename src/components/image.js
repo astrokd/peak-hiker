@@ -8,13 +8,14 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const Image = ( data ) => {
+  // console.log(data.img.allFile.nodes[0])
     return (
       <Container>
         <Row>
           <Col className="text-center">
             <h3>{ data.alt }</h3>
             <GatsbyImage 
-              image={getImage(data.img.mountainImage.childImageSharp)} 
+              image={getImage(data.img.childImageSharp)} 
               alt={data.alt} 
             />
             <p>{ data.description }</p>
