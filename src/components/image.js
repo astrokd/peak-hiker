@@ -15,7 +15,7 @@ const Image = ( data ) => {
           <Col className="text-center">
             <h3>{ data.alt }</h3>
             <GatsbyImage 
-              image={getImage(data.img.childImageSharp)} 
+              image={getImage(data.img.mountainImage.childImageSharp)} 
               alt={data.alt} 
             />
             <p>{ data.description }</p>
