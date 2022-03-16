@@ -18,19 +18,18 @@ import { graphql } from "gatsby"
 
 This is a blog about great pikes hikes in the Pacific North West and anywhere else great peaks can be found.
 
-<Image img={props.data} alt="Mount Rainer" description="View of a mountain top" />
-
-<ImageCarousel />
+<ImageCarousel img={props.data} />
 
 export const query = graphql`
   {
-    mountainImage: file(
-      name: {eq: "mountrainer"}
-      ) {
-      childImageSharp {
-        gatsbyImageData
+    allFile(filter: {name: {in: ["mountrainer","mountsi","mailbox","teneriffe","mntdefiance"]}}) {
+      nodes {
+        childImageSharp {
+          gatsbyImageData
+        }
+        id
+        name
       }
-      name
     }
   }
 `
@@ -45,4 +44,14 @@ export const query = graphql`
 //     }
 //   }
 // }
+  // {
+  //   mountainImage: file(
+  //     name: {eq: "mountrainer"}
+  //     ) {
+  //     childImageSharp {
+  //       gatsbyImageData
+  //     }
+  //     name
+  //   }
+  // }
 

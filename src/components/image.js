@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const Image = ( data ) => {
+  // console.log(data.img.allFile.nodes[0])
     return (
       <Container>
         <Row>
