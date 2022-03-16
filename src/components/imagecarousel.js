@@ -8,30 +8,21 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Carousel from 'react-bootstrap/Carousel'
 
-const imgArr = [
-  "https://via.placeholder.com/640",
-  "https://via.placeholder.com/480",
-  "https://via.placeholder.com/820/000000/FFFFFF",
-  "https://via.placeholder.com/960/0000FF/808080"
-];
-
 const ImageCarousel = ( data ) => {
+  const imgArray = data.img.allFile.nodes
     return (
       <Container>
         <Row>
         <Col>
         <Carousel>
-          {imgArr.map((img, index) => (
+          {imgArray.map((img, index) => (
             <Carousel.Item key={index} className="text-center">
-              <img
-                className="d-block w-80"
-                src={img}
-                alt="Third slide"
+              <GatsbyImage 
+                image={getImage(img.childImageSharp)} 
+                alt={img.name} 
               />
-
               <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <h3>{img.name}</h3>
               </Carousel.Caption>
             </Carousel.Item>
           ))}
