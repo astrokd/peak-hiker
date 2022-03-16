@@ -13,7 +13,7 @@ import { graphql } from "gatsby"
 
 <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
 
-## Hi people!
+## Hi fellow Hikers!
 ## Welcome to Peak Hiker.
 
 This is a blog about great pikes hikes in the Pacific North West and anywhere else great peaks can be found.
@@ -22,7 +22,7 @@ This is a blog about great pikes hikes in the Pacific North West and anywhere el
 
 export const query = graphql`
   {
-    allFile(filter: {name: {in: ["mountrainer","mountsi","mailbox","teneriffe","mntdefiance"]}}) {
+    allFile(filter: {name: {in: ["mountsi","mailbox","teneriffe","mntdefiance"]}}) {
       nodes {
         childImageSharp {
           gatsbyImageData

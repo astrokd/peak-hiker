@@ -14,12 +14,13 @@ const ImageCarousel = ( data ) => {
       <Container>
         <Row>
         <Col>
-        <Carousel>
+        <Carousel fade>
           {imgArray.map((img, index) => (
-            <Carousel.Item key={index} className="text-center">
+            <Carousel.Item key={index} className="text-center" >
               <GatsbyImage 
                 image={getImage(img.childImageSharp)} 
-                alt={img.name} 
+                alt={img.name}
+                style={{maxHeight: 640}} 
               />
               <Carousel.Caption>
                 <h3>{img.name}</h3>
