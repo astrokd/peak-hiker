@@ -39,6 +39,9 @@ module.exports = {
         defaultLayouts: { default: path.resolve('./src/components/layout.js') },
       },
     },
+    {
+      resolve: 'gatsby-plugin-mdx-frontmatter'
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
