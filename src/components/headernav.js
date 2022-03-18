@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { graphql } from "gatsby"
 
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -8,6 +9,19 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Container from 'react-bootstrap/Container'
 
 import * as navStyles from "./headernav.module.css"
+
+// export const query = graphql`
+//   {
+//     allSitePage(filter: {path: {glob: "/hikes/*"}}) {
+//           nodes {
+//             pageContext
+//             id
+//             component
+//             path
+//           }
+//         }
+//   }
+// `
 
 const Header = ({ siteTitle }) => (
   <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "DarkBlue" }} variant="dark">
@@ -25,9 +39,9 @@ const Header = ({ siteTitle }) => (
       <NavDropdown title="Hikes" id="collasible-nav-dropdown">
         <Nav.Item className="p-2 text-end"><Link to="/peakhikes" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Peak Hikes</Link></Nav.Item>
         <NavDropdown.Divider />
-        <Nav.Item className="p-1 text-end"><Link to="/mountsi" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mount Si</Link></Nav.Item>
-        <Nav.Item className="p-1 text-end"><Link to="/mtteneriffe" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mt Teneriffe</Link></Nav.Item>
-        <Nav.Item className="p-1 text-end"><Link to="/mailbox" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mailbox</Link></Nav.Item>
+        <Nav.Item className="p-1 text-end"><Link to="/hikes/mountsi" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mount Si</Link></Nav.Item>
+        <Nav.Item className="p-1 text-end"><Link to="/hikes/mtteneriffe" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mt Teneriffe</Link></Nav.Item>
+        <Nav.Item className="p-1 text-end"><Link to="/hikes/mailbox" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mailbox</Link></Nav.Item>
       </NavDropdown>
       <NavDropdown title="Blog" id="collasible-nav-dropdown">
         <Nav.Item className="p-2 text-end"><Link to="/blog" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Blog</Link></Nav.Item>
@@ -50,3 +64,14 @@ Header.defaultProps = {
 }
 
 export default Header
+
+// query MyQuery {
+//   allSitePage(filter: {path: {glob: "/hikes/*"}}) {
+//     nodes {
+//       pageContext
+//       id
+//       component
+//       path
+//     }
+//   }
+// }
