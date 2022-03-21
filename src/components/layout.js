@@ -17,7 +17,14 @@ const Layout = ({ children }) => (
             title
           }
         }
-      }
+        allSitePage(filter: {path: {glob: "/hikes/*"}}) {
+          nodes {
+            id
+            pageContext
+            path
+          }
+        }
+      },
     `}
     render = {data => (
       <>
@@ -39,7 +46,8 @@ const Layout = ({ children }) => (
             content="Create a React web app that uses Mapbox GL JS to render a map"
           />
         </Helmet>
-        <HeaderNav siteTitle={data.site.siteMetadata.title} />
+        {console.log(data.allSitePage.nodes)}
+        <HeaderNav siteTitle={data.site.siteMetadata.title} sitePages={data.allSitePage.nodes}/>
         <Container>
           {children}
           <div id="map"></div>

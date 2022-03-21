@@ -10,20 +10,7 @@ import Container from 'react-bootstrap/Container'
 
 import * as navStyles from "./headernav.module.css"
 
-// export const query = graphql`
-//   {
-//     allSitePage(filter: {path: {glob: "/hikes/*"}}) {
-//           nodes {
-//             pageContext
-//             id
-//             component
-//             path
-//           }
-//         }
-//   }
-// `
-
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, sitePages  }) => (
   <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "DarkBlue" }} variant="dark">
   <Container>
   <Navbar.Brand>
@@ -39,9 +26,9 @@ const Header = ({ siteTitle }) => (
       <NavDropdown title="Hikes" id="collasible-nav-dropdown">
         <Nav.Item className="p-2 text-end"><Link to="/peakhikes" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Peak Hikes</Link></Nav.Item>
         <NavDropdown.Divider />
-        <Nav.Item className="p-1 text-end"><Link to="/hikes/mountsi" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mount Si</Link></Nav.Item>
-        <Nav.Item className="p-1 text-end"><Link to="/hikes/mtteneriffe" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mt Teneriffe</Link></Nav.Item>
-        <Nav.Item className="p-1 text-end"><Link to="/hikes/mailbox" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Mailbox</Link></Nav.Item>
+        {sitePages.map( (page, id) => (
+            <Nav.Item className="p-1 text-end" key={id}><Link to={page.path} activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>{page.pageContext.frontmatter.title}</Link></Nav.Item>
+        ))}
       </NavDropdown>
       <NavDropdown title="Blog" id="collasible-nav-dropdown">
         <Nav.Item className="p-2 text-end"><Link to="/blog" activeClassName={navStyles.activeNavLink} className={navStyles.navMenuLink}>Blog</Link></Nav.Item>
@@ -57,6 +44,7 @@ const Header = ({ siteTitle }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  sitePages: PropTypes.array,
 }
 
 Header.defaultProps = {
