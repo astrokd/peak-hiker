@@ -18,7 +18,7 @@ import ExternalLink from '../../components/externallink'
 
 ## Mount Si
 
-<Map title="Mount Si" mapstyle="mapbox://styles/kevek/ckfmq9lqb017x19l9zsuvjwvo" Lat={47.495} Lng={-121.737} zoom={13} pitch={60}/>
+<Map title="Mount Si" mapstyle="mapbox://styles/kevek/ckfmq9lqb017x19l9zsuvjwvo" Lat={47.495} Lng={-121.737} zoom={13} pitch={60} staticMapImg={props.data} />
 
 <ExternalLink url="https://www.wta.org/go-hiking/hikes/mount-si" text="WTA.org Mount Si hike guide" />
 
@@ -37,6 +37,14 @@ export const query = graphql`
         gatsbyImageData
       }
       name
-    }
+    },
+    mapImage: file(
+      name: {eq: "placeholder"}
+      ) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    },
   }
 `
