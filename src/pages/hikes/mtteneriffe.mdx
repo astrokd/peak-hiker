@@ -18,7 +18,7 @@ import ExternalLink from '../../components/externallink'
 
 ## Mt Teneriffe
 
-<Map title="Mt Teneriffe" mapstyle="mapbox://styles/kevek/cky2bl03a0idf14myft9wh1ao" Lat={47.5021} Lng={-121.7071} zoom={13} pitch={50} bearing={70} />
+<Map title="Mt Teneriffe" mapstyle="mapbox://styles/kevek/cky2bl03a0idf14myft9wh1ao" Lat={47.5021} Lng={-121.7071} zoom={13} pitch={50} bearing={70} staticMapImg={props.data} />
 
 <ExternalLink url="https://www.wta.org/go-hiking/hikes/mount-teneriffe" text="WTA.org Mount Teneriffe hike guide" />
 
@@ -37,6 +37,14 @@ export const query = graphql`
         gatsbyImageData
       }
       name
-    }
+    },
+    mapImage: file(
+      name: {eq: "placeholder"}
+      ) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    },
   }
 `
