@@ -1,8 +1,6 @@
 import React from 'react'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-
-// import { StaticImage } from "gatsby-plugin-image"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'

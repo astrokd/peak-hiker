@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 import MapboxGl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as mapStyles from "./map.module.css"
 import PropTypes from 'prop-types';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -17,11 +16,12 @@ MapboxGl.accessToken = `${apikey}`
 let loadstatus = false
 
 const MapImage = (props) => {
+    const imgLoc = props.Lng + "," + props.Lat + "," + props.zoom + "," + props.bearing + "," + props.pitch
+    const imgSize = "/800x400"
+    const imgtoken = "?access_token=" + apikey
+    const imgSrc = "https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/" + imgLoc + imgSize + imgtoken
     return (
-        <GatsbyImage 
-            image={getImage(props.mapImg)} 
-            alt="placeholder" 
-        />
+        <img src={imgSrc}  alt="static MapBox map"/>
     )
 }
 
@@ -34,7 +34,6 @@ export default function Map(props) {
     const [zoom, setZoom] = useState(props.zoom || 14);
     const pitch = props.pitch || 45;
     const bearing = props.bearing || 0;
-    const staticMapImg = props.staticMapImg
     
     useEffect(() => {
         if (map.current) return; // initialize map only once
@@ -50,6 +49,7 @@ export default function Map(props) {
         });
         map.current.on('load', () => {
             map.current.resize();
+            loadstatus = true;
         });
 
     });
@@ -70,14 +70,12 @@ export default function Map(props) {
                 <Col id="map" className={mapStyles.mapcontainer}>
                     {loadstatus 
                         ? <div ref={mapContainer} className={mapStyles.mapcontainer} />
-                        : <MapImage mapImg={staticMapImg.mapImage.childImageSharp}/> }
+                        : <MapImage Lat={lat} Lng={lng} bearing={bearing} pitch={pitch} zoom={zoom}/> }
                 </Col>
             </Row>
         </Container>
     );
 }
-
-
 
 Map.PropTypes = {
     title: PropTypes.string.isRequired,

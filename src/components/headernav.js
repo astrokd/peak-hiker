@@ -1,7 +1,6 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { graphql } from "gatsby"
 
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -52,14 +51,3 @@ Header.defaultProps = {
 }
 
 export default Header
-
-// query MyQuery {
-//   allSitePage(filter: {path: {glob: "/hikes/*"}}) {
-//     nodes {
-//       pageContext
-//       id
-//       component
-//       path
-//     }
-//   }
-// }
