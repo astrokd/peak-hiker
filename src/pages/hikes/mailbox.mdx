@@ -18,7 +18,7 @@ import ExternalLink from '../../components/externallink'
 
 ## Mailbox Peak
 
-<Map title="Mailbox" mapstyle="mapbox://styles/kevek/ckyhun2330gf214pdia09g6qj" Lat={47.4642} Lng={-121.6585} bearing={70} pitch={50} zoom={13} staticMapImg={props.data} />
+<Map title="Mailbox" mapstyle="mapbox://styles/kevek/ckyhun2330gf214pdia09g6qj" Lat={47.4642} Lng={-121.6585} bearing={70} pitch={50} zoom={13} />
 
 <ExternalLink url="https://www.wta.org/go-hiking/hikes/mailbox-peak-old-trail" text="WTA.org Mailbox Peak - Old Trail hike guide" />
 
@@ -32,14 +32,6 @@ export const query = graphql`
   {
     mountainImage: file(
       name: {eq: "mailbox"}
-      ) {
-      childImageSharp {
-        gatsbyImageData
-      }
-      name
-    },
-    mapImage: file(
-      name: {eq: "placeholder"}
       ) {
       childImageSharp {
         gatsbyImageData
