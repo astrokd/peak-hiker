@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 import Container from 'react-bootstrap/Container'
-
 
 export default function ExternalLink(props) {
     const url = props.url
@@ -16,7 +14,7 @@ export default function ExternalLink(props) {
     );
 }
 
-ExternalLink.PropTypes = {
+ExternalLink.propTypes = {
     url: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
 }

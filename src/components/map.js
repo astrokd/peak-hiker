@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+// eslint-disable-next-line no-undef
 const apikey = process.env.GATSBY_API_KEY1
 
 MapboxGl.accessToken = `${apikey}`
@@ -16,6 +17,7 @@ MapboxGl.accessToken = `${apikey}`
 let loadstatus = false
 
 const MapImage = (props) => {
+
     const imgLoc = props.Lng + "," + props.Lat + "," + props.zoom + "," + props.bearing + "," + props.pitch
     const imgSize = "/800x400"
     const imgtoken = "?access_token=" + apikey
@@ -77,7 +79,15 @@ export default function Map(props) {
     );
 }
 
-Map.PropTypes = {
+MapImage.propTypes = {
+    Lng: PropTypes.number.isRequired,
+    Lat: PropTypes.number.isRequired,
+    zoom: PropTypes.number,
+    pitch: PropTypes.number,
+    bearing: PropTypes.number,
+}
+
+Map.propTypes = {
     title: PropTypes.string.isRequired,
     mapstyle: PropTypes.string.isRequired,
     Lng: PropTypes.number.isRequired,

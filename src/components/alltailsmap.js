@@ -12,7 +12,7 @@ export default function AllTrailsMap(props) {
     return (
         <Container>
             <Row>
-                <Accordion>
+                <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                     <Accordion.Header>All Trails Map {allTrailsHike}</Accordion.Header>
                         <Accordion.Body>
@@ -33,6 +33,6 @@ export default function AllTrailsMap(props) {
     );
 }
 
-AllTrailsMap.PropTypes = {
+AllTrailsMap.propTypes = {
     hike: PropTypes.string.isRequired,
 }
