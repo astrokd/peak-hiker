@@ -33,6 +33,6 @@ export default function AllTrailsMap(props) {
     );
 }
 
-AllTrailsMap.PropTypes = {
+AllTrailsMap.propTypes = {
     hike: PropTypes.string.isRequired,
 }
