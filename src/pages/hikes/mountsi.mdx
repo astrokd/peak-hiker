@@ -11,8 +11,7 @@ import { graphql } from "gatsby"
 import Map from '../../components/map';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';
-import AllTrailsMap from '../../components/alltailsmap'
-import ExternalLink from '../../components/externallink'
+import HikeData from '../../components/hikedata'
 
 <SEO title="Mount Si" />
 
@@ -20,9 +19,11 @@ import ExternalLink from '../../components/externallink'
 
 <Map title="Mount Si" mapstyle="mapbox://styles/kevek/ckfmq9lqb017x19l9zsuvjwvo" Lat={47.495} Lng={-121.737} zoom={13} pitch={60} />
 
-<ExternalLink url="https://www.wta.org/go-hiking/hikes/mount-si" text="WTA.org Mount Si hike guide" />
-
-<AllTrailsMap hike="mount-si-trail" />
+<HikeData 
+  title="Mount Si via the Old Si trail"
+  alltrailsurl="https://www.alltrails.com/trail/us/washington/mount-si-via-old-si-trail?u=i" 
+  wtaurl="https://www.wta.org/go-hiking/hikes/mount-si" 
+  distance="6.1" elevation="3556" peakheight="3900" />
 
 Mount Si is the typical Cascade Mountain Range peak hike and a great place to start Peak Hiking.  It's high with many switchbacks through rock and forest on the side of a mountain.  At the top, there is a spectacular view of the local maintains, North Bend below, and Mountain Rainer to the south.  There are different ways to get to the peak but the most common is the Mt Si Trail.
 

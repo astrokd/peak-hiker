@@ -11,8 +11,7 @@ import { graphql } from "gatsby"
 import Map from '../../components/map';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';
-import AllTrailsMap from '../../components/alltailsmap'
-import ExternalLink from '../../components/externallink'
+import HikeData from '../../components/hikedata'
 
 <SEO title="Mt Teneriffe" />
 
@@ -22,7 +21,11 @@ import ExternalLink from '../../components/externallink'
 
 <ExternalLink url="https://www.wta.org/go-hiking/hikes/mount-teneriffe" text="WTA.org Mount Teneriffe hike guide" />
 
-<AllTrailsMap hike="mount-teneriffe-via-kamikaze-trail" />
+<HikeData 
+  title="Mount Teneriffe via the kamikaze trail"
+  alltrailsurl="https://www.alltrails.com/trail/us/washington/mount-teneriffe-via-kamikaze-trail?u=i" 
+  wtaurl="https://www.wta.org/go-hiking/hikes/mount-teneriffe" 
+  distance="7.4" elevation="3917" peakheight="4585" />
 
 Almost next door to Mt Si is Teneriffe, similar to Si except being higher and less traveled.  The peak can be accessed by either by the Teneriffe falls trail and then ascend up a ridge trail that is very steep at times and will test your comfort level for heights, or the longer Mt Teneriffe trail.  At the summit you will have a spectacular 360 degree view of the mountains.
 
