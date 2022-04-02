@@ -11,8 +11,7 @@ import { graphql } from "gatsby"
 import Map from '../../components/map';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';
-import AllTrailsMap from '../../components/alltailsmap'
-import ExternalLink from '../../components/externallink'
+import HikeData from '../../components/hikedata'
 
 <SEO title="Mailbox" />
 
@@ -20,9 +19,11 @@ import ExternalLink from '../../components/externallink'
 
 <Map title="Mailbox" mapstyle="mapbox://styles/kevek/ckyhun2330gf214pdia09g6qj" Lat={47.4642} Lng={-121.6585} bearing={70} pitch={50} zoom={13} />
 
-<ExternalLink url="https://www.wta.org/go-hiking/hikes/mailbox-peak-old-trail" text="WTA.org Mailbox Peak - Old Trail hike guide" />
-
-<AllTrailsMap hike="mailbox-peak-old-trail" />
+<HikeData 
+  title="Mailbox Peak via the Old Mailbox Peak trail"
+  alltrailsurl="https://www.alltrails.com/trail/us/washington/mailbox-peak-old-trail?u=i" 
+  wtaurl="https://www.wta.org/go-hiking/hikes/mailbox-peak-old-trail" 
+  distance="4.8" elevation="3959" peakheight="4822" />
 
 Mailbox peak is named so because of the mailbox that sits at the top of the peak.  There are 2 trails up the mountain, one is newer and has many switchbacks making it longer, and the other is the old mailbox peak trail which is considered one of the hardest in the area dues to its steepness.
 
