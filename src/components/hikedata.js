@@ -14,23 +14,21 @@ export default function HikeData(props) {
     const peakheight = props.peakheight
 
     return (
-        <Container>
-            <Card border="light" >
-                <Card.Header>Hike Stats</Card.Header>
-                <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                </Card.Body>
+        <Card border="info" className='mb-2' >
+            <Card.Header>Hike Stats:</Card.Header>
+            <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">Peak Elevation: {peakheight} ft</Card.Subtitle>
                 <ListGroup className="list-group-flush">
                     <ListGroup.Item>Distance: {distance} mi</ListGroup.Item>
                     <ListGroup.Item>Elevation gain: {elevation} ft</ListGroup.Item>
-                    <ListGroup.Item>Peak Elevation: {peakheight} ft</ListGroup.Item>
                 </ListGroup>
-                <Card.Footer>
-                    <Card.Link href={wtaurl} target="_blank" rel="noreferrer">WTA.org hike link</Card.Link>
-                    <Card.Link href={alltrailsurl} target="_blank" rel="noreferrer">AllTrails.com hike link</Card.Link>
-                </Card.Footer>
-            </Card>
-        </Container>
+            </Card.Body>
+            <Card.Footer>
+                <Card.Link href={wtaurl} target="_blank" rel="noreferrer">WTA.org hike link</Card.Link>
+                <Card.Link href={alltrailsurl} target="_blank" rel="noreferrer">AllTrails.com hike link</Card.Link>
+            </Card.Footer>
+        </Card>
     );
 }
 
