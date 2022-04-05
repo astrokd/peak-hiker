@@ -19,7 +19,7 @@ let loadstatus = false
 const MapImage = (props) => {
 
     const imgLoc = props.Lng + "," + props.Lat + "," + props.zoom + "," + props.bearing + "," + props.pitch
-    const imgSize = "/800x400"
+    const imgSize = "/400x400"
     const imgtoken = "?access_token=" + apikey
     const imgSrc = "https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/" + imgLoc + imgSize + imgtoken
     return (
@@ -36,9 +36,17 @@ export default function Map(props) {
     const [zoom, setZoom] = useState(props.zoom || 14);
     const pitch = props.pitch || 45;
     const bearing = props.bearing || 0;
+    // const [height, setHeight] = useState(0)
+    // const [width, setWidth] = useState(0)
     
     useEffect(() => {
         if (map.current) return; // initialize map only once
+
+        // console.log("height and width:")
+        // console.log({height} + " : " + {width})
+
+        // const heightW = document.getElementById('map').clientHeight;
+        // console.log({ heightW });
 
         map.current = new MapboxGl.Map({
             container: 'map',
@@ -62,14 +70,17 @@ export default function Map(props) {
           setLng(map.current.getCenter().lng.toFixed(4));
           setLat(map.current.getCenter().lat.toFixed(4));
           setZoom(map.current.getZoom().toFixed(12));
-          map.current.resize();
+        //   map.current.resize();
+
+        // const heightH = document.getElementById('map').clientHeight;
+        // console.log({ heightH });
         });
       });
 
     return (
         <Container>
             <Row>
-                <Col id="map" className={mapStyles.mapcontainer}>
+                <Col id="map" className='mb-2' >
                     {loadstatus 
                         ? <div ref={mapContainer} className={mapStyles.mapcontainer} />
                         : <MapImage Lat={lat} Lng={lng} bearing={bearing} pitch={pitch} zoom={zoom}/> }
