@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 
@@ -14,7 +13,7 @@ export default function HikeData(props) {
     const peakheight = props.peakheight
 
     return (
-        <Card border="info" className='mb-2' >
+        <Card border="info" className='mb-2 mt-2' >
             <Card.Header>Hike Stats:</Card.Header>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
