@@ -6,25 +6,32 @@ import PropTypes from 'prop-types';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 
 // eslint-disable-next-line no-undef
 const apikey = process.env.GATSBY_API_KEY1
-
 MapboxGl.accessToken = `${apikey}`
-
 let loadstatus = false
 
 const MapImage = (props) => {
-
+    const status = props.status
     const imgLoc = props.Lng + "," + props.Lat + "," + props.zoom + "," + props.bearing + "," + props.pitch
     const imgSize = "/400x400"
     const imgtoken = "?access_token=" + apikey
     const imgSrc = "https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/" + imgLoc + imgSize + imgtoken
-    return (
-        <img src={imgSrc}  alt="static MapBox map"/>
-    )
+    const mapContainer = props.mapContainer
+
+    if (status) {
+        return (
+            <div ref={mapContainer} className={mapStyles.mapcontainer} />
+        )
+    } else {
+        return (
+            <Container>
+                <img src={imgSrc}  alt="static MapBox map" />
+            </Container>
+        )
+    }
+    
 }
 
 export default function Map(props) {
@@ -36,17 +43,9 @@ export default function Map(props) {
     const [zoom, setZoom] = useState(props.zoom || 14);
     const pitch = props.pitch || 45;
     const bearing = props.bearing || 0;
-    // const [height, setHeight] = useState(0)
-    // const [width, setWidth] = useState(0)
     
     useEffect(() => {
         if (map.current) return; // initialize map only once
-
-        // console.log("height and width:")
-        // console.log({height} + " : " + {width})
-
-        // const heightW = document.getElementById('map').clientHeight;
-        // console.log({ heightW });
 
         map.current = new MapboxGl.Map({
             container: 'map',
@@ -55,7 +54,9 @@ export default function Map(props) {
             pitch: pitch,
             bearing: bearing,
             center: [lng, lat],
-            zoom: zoom
+            zoom: zoom,
+            height: "400px",
+            width: "100%"
         });
         map.current.on('load', () => {
             map.current.resize();
@@ -70,32 +71,25 @@ export default function Map(props) {
           setLng(map.current.getCenter().lng.toFixed(4));
           setLat(map.current.getCenter().lat.toFixed(4));
           setZoom(map.current.getZoom().toFixed(12));
-        //   map.current.resize();
 
-        // const heightH = document.getElementById('map').clientHeight;
-        // console.log({ heightH });
         });
       });
 
     return (
-        <Container>
-            <Row>
-                <Col id="map" className='mb-2' >
-                    {loadstatus 
-                        ? <div ref={mapContainer} className={mapStyles.mapcontainer} />
-                        : <MapImage Lat={lat} Lng={lng} bearing={bearing} pitch={pitch} zoom={zoom}/> }
-                </Col>
-            </Row>
+        <Container id="map" className={mapStyles.mapcontainer}>
+                    <MapImage Lat={lat} Lng={lng} bearing={bearing} pitch={pitch} zoom={zoom} mapContainer={mapContainer} status={loadstatus} />
         </Container>
     );
 }
 
 MapImage.propTypes = {
-    Lng: PropTypes.number.isRequired,
-    Lat: PropTypes.number.isRequired,
+    Lng: PropTypes.string.isRequired,
+    Lat: PropTypes.string.isRequired,
     zoom: PropTypes.number,
-    pitch: PropTypes.number,
+    pitch: PropTypes.string,
     bearing: PropTypes.number,
+    status: PropTypes.bool,
+    mapContainer: PropTypes.string,
 }
 
 Map.propTypes = {
@@ -103,7 +97,7 @@ Map.propTypes = {
     mapstyle: PropTypes.string.isRequired,
     Lng: PropTypes.number.isRequired,
     Lat: PropTypes.number.isRequired,
-    zoom: PropTypes.number,
+    zoom: PropTypes.string,
     pitch: PropTypes.number,
     bearing: PropTypes.number,
     staticMapImg: PropTypes.string.isRequired,
