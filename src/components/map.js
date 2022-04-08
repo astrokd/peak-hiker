@@ -13,12 +13,27 @@ MapboxGl.accessToken = `${apikey}`
 let loadstatus = false
 
 const MapImage = (props) => {
+    const targetRef = useRef();
+    const [dimensions, setDimensions] = useState({ width: 600, height: 400 });
     const status = props.status
     const imgLoc = props.Lng + "," + props.Lat + "," + props.zoom + "," + props.bearing + "," + props.pitch
-    const imgSize = "/400x400"
+    const imgHeight = props.height || "400"
+    const imgWidth = dimensions.width || "500"
+    const imgSize = "/" + imgHeight + "x" + imgWidth
     const imgtoken = "?access_token=" + apikey
-    const imgSrc = "https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/" + imgLoc + imgSize + imgtoken
+    const imgSrc = "https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/"
     const mapContainer = props.mapContainer
+
+    console.log("width: " + imgWidth)
+
+    useEffect(() => {
+        if (targetRef.current) {
+          setDimensions({
+            width: targetRef.current.offsetWidth,
+            height: targetRef.current.offsetHeight
+          });
+        }
+      }, []);
 
     if (status) {
         return (
@@ -26,8 +41,9 @@ const MapImage = (props) => {
         )
     } else {
         return (
-            <Container>
-                <img src={imgSrc}  alt="static MapBox map" />
+            <Container ref={targetRef} id="staticmap">
+                {console.log("in MapImage width: " + dimensions.width)}
+                <img src={imgSrc + imgLoc + imgSize + imgtoken}  alt="static MapBox map" />
             </Container>
         )
     }
@@ -47,6 +63,8 @@ export default function Map(props) {
     useEffect(() => {
         if (map.current) return; // initialize map only once
 
+        console.log("on useEffect in if map.current ")
+
         map.current = new MapboxGl.Map({
             container: 'map',
             name: "peak",
@@ -56,7 +74,6 @@ export default function Map(props) {
             center: [lng, lat],
             zoom: zoom,
             height: "400px",
-            width: "100%"
         });
         map.current.on('load', () => {
             map.current.resize();
@@ -77,19 +94,23 @@ export default function Map(props) {
 
     return (
         <Container id="map" className={mapStyles.mapcontainer}>
-                    <MapImage Lat={lat} Lng={lng} bearing={bearing} pitch={pitch} zoom={zoom} mapContainer={mapContainer} status={loadstatus} />
+                <div ref={mapContainer} className={mapStyles.mapcontainer} />
+                    {/* {console.log("in Map return height x width: ", imgheight + " x " + imgwidth)}
+                    <MapImage Lat={lat} Lng={lng} bearing={bearing} pitch={pitch} zoom={zoom} mapContainer={mapContainer} status={loadstatus}/> */}
         </Container>
     );
 }
 
 MapImage.propTypes = {
-    Lng: PropTypes.string.isRequired,
-    Lat: PropTypes.string.isRequired,
+    Lng: PropTypes.number.isRequired,
+    Lat: PropTypes.number.isRequired,
     zoom: PropTypes.number,
-    pitch: PropTypes.string,
+    pitch: PropTypes.number,
     bearing: PropTypes.number,
     status: PropTypes.bool,
-    mapContainer: PropTypes.string,
+    mapContainer: PropTypes.object,
+    height: PropTypes.string,
+    width: PropTypes.string,
 }
 
 Map.propTypes = {
@@ -97,8 +118,7 @@ Map.propTypes = {
     mapstyle: PropTypes.string.isRequired,
     Lng: PropTypes.number.isRequired,
     Lat: PropTypes.number.isRequired,
-    zoom: PropTypes.string,
+    zoom: PropTypes.number,
     pitch: PropTypes.number,
     bearing: PropTypes.number,
-    staticMapImg: PropTypes.string.isRequired,
 }
