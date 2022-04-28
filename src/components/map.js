@@ -53,7 +53,7 @@ const MapImage = (props) => {
 export default function Map(props) {
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const mapstyle = props.mapstyle
+    const mapstyle = props.mapstyle || "mapbox://styles/kevek/cl2i2uhl4001r14mjpxg4o5rj"
     const [lng, setLng] = useState(props.Lng);
     const [lat, setLat] = useState(props.Lat);
     const [zoom, setZoom] = useState(props.zoom || 14);
@@ -115,7 +115,7 @@ MapImage.propTypes = {
 
 Map.propTypes = {
     title: PropTypes.string.isRequired,
-    mapstyle: PropTypes.string.isRequired,
+    mapstyle: PropTypes.string,
     Lng: PropTypes.number.isRequired,
     Lat: PropTypes.number.isRequired,
     zoom: PropTypes.number,
