@@ -1,0 +1,41 @@
+---
+title: Mount Washington
+type: hike
+---
+
+import { Link } from 'gatsby'
+import Layout from '../../components/layout'
+import Image from '../../components/image'
+import SEO from '../../components/seo'
+import { graphql } from "gatsby"
+import Map from '../../components/map';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import ReactDOM from 'react-dom';
+import HikeData from '../../components/hikedata'
+
+<SEO title="Mt Washington" />
+
+## Mt Washington
+
+<Map title="Mt Washington" Lat={47.4355} Lng={-121.6790} zoom={13} pitch={55} bearing={185} />
+
+<HikeData 
+  title="Mount Washington trail"
+  alltrailsurl="https://www.alltrails.com/trail/us/washington/mount-washington?u=i" 
+  wtaurl="https://www.wta.org/go-hiking/hikes/mount-washington-1" 
+  distance="9" elevation="3287" peakheight="4450" />
+
+<Image img={props.data} alt="Mt Washington" description="View from top of Mt Washington looking toward Rainer" />
+
+export const query = graphql`
+  {
+    mountainImage: file(
+      name: {eq: "mtwashington"}
+      ) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    },
+  }
+`
