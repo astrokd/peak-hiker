@@ -1,0 +1,41 @@
+---
+title: McClellan Butte
+type: hike
+---
+
+import { Link } from 'gatsby'
+import Layout from '../../components/layout'
+import Image from '../../components/image'
+import SEO from '../../components/seo'
+import { graphql } from "gatsby"
+import Map from '../../components/map';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import ReactDOM from 'react-dom';
+import HikeData from '../../components/hikedata'
+
+<SEO title="McClellan Butte" />
+
+## McClellan Butte
+
+<Map title="McClellan Butte" Lat={47.4100} Lng={-121.6060} zoom={13} pitch={65} bearing={205} />
+
+<HikeData 
+  title="McClellan Butte trail"
+  alltrailsurl="https://www.alltrails.com/trail/us/washington/mcclellan-butte-trail?u=i " 
+  wtaurl="https://www.wta.org/go-hiking/hikes/mcclellan-butte" 
+  distance="9" elevation="3700" peakheight="5162" />
+
+<Image img={props.data} alt="McClellan Butte" description="View from McClellan Butte, above the clouds" />
+
+export const query = graphql`
+  {
+    mountainImage: file(
+      name: {eq: "mcclellanbutte"}
+      ) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    },
+  }
+`
