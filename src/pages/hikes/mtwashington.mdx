@@ -3,6 +3,18 @@ title: Mount Washington
 type: hike
 ---
 
+export const metadata = {
+  title: "Mount Washington",
+  lat: 47.4355,
+  lng: -121.6790,
+  bearing: 185,
+  pitch: 55,
+  zoom: 13,
+  distance: 9,
+  elevation: 3287,
+  peakheight: 4450,
+};
+
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import Image from '../../components/image'
@@ -13,19 +25,23 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';
 import HikeData from '../../components/hikedata'
 
-<SEO title="Mt Washington" />
+<SEO title={metadata.title} />
 
-## Mt Washington
+<h2>{metadata.title}</h2>
 
-<Map title="Mt Washington" Lat={47.4355} Lng={-121.6790} zoom={13} pitch={55} bearing={185} />
+<Map title={metadata.title} 
+  Lat={metadata.lat} Lng={metadata.lng} 
+  bearing={metadata.bearing} pitch={metadata.pitch} zoom={metadata.zoom} />
 
 <HikeData 
   title="Mount Washington trail"
   alltrailsurl="https://www.alltrails.com/trail/us/washington/mount-washington?u=i" 
   wtaurl="https://www.wta.org/go-hiking/hikes/mount-washington-1" 
-  distance="9" elevation="3287" peakheight="4450" />
+  distance={metadata.distance} 
+  elevation={metadata.elevation} 
+  peakheight={metadata.peakheight} />
 
-<Image img={props.data} alt="Mt Washington" description="View from top of Mt Washington looking toward Rainer" />
+<Image img={props.data} alt={metadata.title} description="View from top of Mt Washington looking toward Rainer" />
 
 export const query = graphql`
   {

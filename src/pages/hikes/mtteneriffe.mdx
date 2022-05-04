@@ -3,6 +3,18 @@ title: Mount Teneriffe
 type: hike
 ---
 
+export const metadata = {
+  title: "Mount Teneriffe",
+  lat: 47.5010,
+  lng: -121.7070,
+  bearing: 70,
+  pitch: 50,
+  zoom: 13,
+  distance: 7.4,
+  elevation: 3917,
+  peakheight: 4585,
+};
+
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import Image from '../../components/image'
@@ -13,19 +25,23 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';
 import HikeData from '../../components/hikedata'
 
-<SEO title="Mt Teneriffe" />
+<SEO title={metadata.title} />
 
-## Mt Teneriffe
+<h2>{metadata.title}</h2>
 
-<Map title="Mt Teneriffe" Lat={47.5021} Lng={-121.7071} zoom={13} pitch={50} bearing={70} />
+<Map title={metadata.title} 
+  Lat={metadata.lat} Lng={metadata.lng} 
+  bearing={metadata.bearing} pitch={metadata.pitch} zoom={metadata.zoom} />
 
 <HikeData 
   title="Mount Teneriffe via the Kamikaze trail"
   alltrailsurl="https://www.alltrails.com/trail/us/washington/mount-teneriffe-via-kamikaze-trail?u=i" 
   wtaurl="https://www.wta.org/go-hiking/hikes/mount-teneriffe" 
-  distance="7.4" elevation="3917" peakheight="4585" />
+  distance={metadata.distance} 
+  elevation={metadata.elevation} 
+  peakheight={metadata.peakheight} />
 
-<Image img={props.data} alt="Mt Teneriffe" description="View from top of Teneriffe on a cloudy day" />
+<Image img={props.data} alt={metadata.title} description="View from top of Teneriffe on a cloudy day" />
 
 export const query = graphql`
   {

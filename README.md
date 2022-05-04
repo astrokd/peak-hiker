@@ -42,3 +42,7 @@ Using the Static Images API [https://docs.mapbox.com/playground/static/](https:/
 - Zoom, Bearing, Pitch: `,13,70,50`
 - Image Height and Width: `/800x400`
 - API Token: `?access_token={---MAPBOX access token---}`
+
+## Using MDX pages
+
+[Writing Pages in MDX Gatsbyjs docs](https://www.gatsbyjs.com/docs/mdx/writing-pages/)

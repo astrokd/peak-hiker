@@ -3,6 +3,18 @@ title: Mount Si
 type: hike
 ---
 
+export const metadata = {
+  title: "Mount Si",
+  lat: 47.495,
+  lng: -121.740,
+  bearing: 0,
+  pitch: 60,
+  zoom: 13,
+  distance: 6.1,
+  elevation: 3556,
+  peakheight: 3900,
+};
+
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import Image from '../../components/image'
@@ -13,19 +25,23 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';
 import HikeData from '../../components/hikedata'
 
-<SEO title="Mount Si" />
+<SEO title={metadata.title} />
 
-## Mount Si
+<h2>{metadata.title}</h2>
 
-<Map title="Mount Si" Lat={47.495} Lng={-121.737} zoom={13} pitch={60} />
+<Map title={metadata.title} 
+  Lat={metadata.lat} Lng={metadata.lng} 
+  bearing={metadata.bearing} pitch={metadata.pitch} zoom={metadata.zoom} />
 
 <HikeData 
   title="Mount Si via the Old Si trail"
   alltrailsurl="https://www.alltrails.com/trail/us/washington/mount-si-via-old-si-trail?u=i" 
   wtaurl="https://www.wta.org/go-hiking/hikes/mount-si" 
-  distance="6.1" elevation="3556" peakheight="3900" />
+  distance={metadata.distance} 
+  elevation={metadata.elevation} 
+  peakheight={metadata.peakheight} />
 
-<Image img={props.data} alt="Mount Si" description="View from top of Mnt Si" />
+<Image img={props.data} alt={metadata.title} description="View from top of Mnt Si" />
 
 export const query = graphql`
   {

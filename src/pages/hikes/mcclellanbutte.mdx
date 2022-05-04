@@ -3,6 +3,18 @@ title: McClellan Butte
 type: hike
 ---
 
+export const metadata = {
+  title: "McClellan Butte",
+  lat: 47.4100,
+  lng: -121.6060,
+  bearing: 205,
+  pitch: 65,
+  zoom: 13,
+  distance: 9,
+  elevation: 3700,
+  peakheight: 5162,
+};
+
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import Image from '../../components/image'
@@ -13,19 +25,23 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';
 import HikeData from '../../components/hikedata'
 
-<SEO title="McClellan Butte" />
+<SEO title={metadata.title} />
 
-## McClellan Butte
+<h2>{metadata.title}</h2>
 
-<Map title="McClellan Butte" Lat={47.4100} Lng={-121.6060} zoom={13} pitch={65} bearing={205} />
+<Map title={metadata.title} 
+  Lat={metadata.lat} Lng={metadata.lng} 
+  bearing={metadata.bearing} pitch={metadata.pitch} zoom={metadata.zoom} />
 
 <HikeData 
   title="McClellan Butte trail"
   alltrailsurl="https://www.alltrails.com/trail/us/washington/mcclellan-butte-trail?u=i " 
   wtaurl="https://www.wta.org/go-hiking/hikes/mcclellan-butte" 
-  distance="9" elevation="3700" peakheight="5162" />
+  distance={metadata.distance} 
+  elevation={metadata.elevation} 
+  peakheight={metadata.peakheight} />
 
-<Image img={props.data} alt="McClellan Butte" description="View from McClellan Butte, above the clouds" />
+<Image img={props.data} alt={metadata.title} description="View from McClellan Butte, above the clouds" />
 
 export const query = graphql`
   {
