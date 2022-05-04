@@ -3,6 +3,18 @@ title: Mount Defiance
 type: hike
 ---
 
+export const metadata = {
+  title: "Mount Defiance",
+  lat: 47.4220,
+  lng: -121.5685,
+  bearing: 35,
+  pitch: 60,
+  zoom: 13,
+  distance: 11,
+  elevation: 3584,
+  peakheight: 5584,
+};
+
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import Image from '../../components/image'
@@ -13,19 +25,23 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';
 import HikeData from '../../components/hikedata'
 
-<SEO title="Mt Defiance" />
+<SEO title={metadata.title} />
 
-## Mt Defience
+<h2>{metadata.title}</h2>
 
-<Map title="Mt Defiance" Lat={47.4220} Lng={-121.5655} zoom={13} pitch={58} bearing={35} />
+<Map title={metadata.title} 
+  Lat={metadata.lat} Lng={metadata.lng} 
+  bearing={metadata.bearing} pitch={metadata.pitch} zoom={metadata.zoom} />
 
 <HikeData 
   title="Mount Defiance via Ira Springs trail"
   alltrailsurl="https://www.alltrails.com/trail/us/washington/mount-defiance-and-mason-lake-trail?u=i" 
   wtaurl="https://www.wta.org/go-hiking/hikes/mount-defiance" 
-  distance="11" elevation="3584" peakheight="5584" />
+  distance={metadata.distance} 
+  elevation={metadata.elevation} 
+  peakheight={metadata.peakheight} />
 
-<Image img={props.data} alt="Mt Defiance" description="View from top of Defiance looking down on Mason lake" />
+<Image img={props.data} alt={metadata.title} description="View from top of Defiance looking down on Mason lake" />
 
 export const query = graphql`
   {
