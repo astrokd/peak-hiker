@@ -1,0 +1,57 @@
+---
+title: "Humpback Mountain"
+type: hike
+---
+
+export const metadata = {
+  title: "Humpback Mountain",
+  lat: 47.3784,
+  lng: -121.5120,
+  bearing: 120,
+  pitch: 70,
+  zoom: 13.5,
+  distance: 4,
+  elevation: 2772,
+  peakheight: 5112,
+};
+
+import { Link } from 'gatsby'
+import Layout from '../../components/layout'
+import Image from '../../components/image'
+import SEO from '../../components/seo'
+import { graphql } from "gatsby"
+import Map from '../../components/map';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import ReactDOM from 'react-dom';
+import HikeData from '../../components/hikedata'
+
+<SEO title={metadata.title} />
+
+<h2>{metadata.title}</h2>
+
+<Map title={metadata.title} 
+  Lat={metadata.lat} Lng={metadata.lng} 
+  bearing={metadata.bearing} pitch={metadata.pitch} zoom={metadata.zoom} />
+  
+<HikeData 
+  title="Humpback Mountain trail"
+  alltrailsurl="https://www.alltrails.com/trail/us/washington/humpback-mountain-trail?u=i" 
+  wtaurl="https://www.wta.org/go-hiking/hikes/humpback-mountain" 
+  distance={metadata.distance} 
+  elevation={metadata.elevation} 
+  peakheight={metadata.peakheight} />
+
+<Image img={props.data} alt={metadata.title} description="View from Humpback Mountain look toward Annette Lake" />
+
+export const query = graphql`
+  {
+    mountainImage: file(
+      name: {eq: "humpbackmt"}
+      ) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    },
+  }
+`

@@ -1,0 +1,57 @@
+---
+title: "Granite Mountain"
+type: hike
+---
+
+export const metadata = {
+  title: "Granite Mountain",
+  lat: 47.4079,
+  lng: -121.4841,
+  bearing: 40,
+  pitch: 50,
+  zoom: 13,
+  distance: 8.6,
+  elevation: 3800,
+  peakheight: 5629,
+};
+
+import { Link } from 'gatsby'
+import Layout from '../../components/layout'
+import Image from '../../components/image'
+import SEO from '../../components/seo'
+import { graphql } from "gatsby"
+import Map from '../../components/map';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import ReactDOM from 'react-dom';
+import HikeData from '../../components/hikedata'
+
+<SEO title={metadata.title} />
+
+<h2>{metadata.title}</h2>
+
+<Map title={metadata.title} 
+  Lat={metadata.lat} Lng={metadata.lng} 
+  bearing={metadata.bearing} pitch={metadata.pitch} zoom={metadata.zoom} />
+  
+<HikeData 
+  title="Granite Mountain trail"
+  alltrailsurl="https://www.alltrails.com/trail/us/washington/granite-mountain-trail?u=i" 
+  wtaurl="https://www.wta.org/go-hiking/hikes/granite-mountain" 
+  distance={metadata.distance} 
+  elevation={metadata.elevation} 
+  peakheight={metadata.peakheight} />
+
+<Image img={props.data} alt={metadata.title} description="Granite Mountain lookout/firetower" />
+
+export const query = graphql`
+  {
+    mountainImage: file(
+      name: {eq: "granitemntlookout"}
+      ) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    },
+  }
+`
