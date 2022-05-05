@@ -1,18 +1,18 @@
 ---
-title: "Mailbox Peak"
+title: "Granite Mountain"
 type: hike
 ---
 
 export const metadata = {
-  title: "Mailbox Peak",
-  lat: 47.4642,
-  lng: -121.6585,
-  bearing: 70,
+  title: "Granite Mountain",
+  lat: 47.4079,
+  lng: -121.4841,
+  bearing: 40,
   pitch: 50,
   zoom: 13,
-  distance: 4.8,
-  elevation: 3959,
-  peakheight: 4822,
+  distance: 8.6,
+  elevation: 3800,
+  peakheight: 5629,
 };
 
 import { Link } from 'gatsby'
@@ -32,21 +32,21 @@ import HikeData from '../../components/hikedata'
 <Map title={metadata.title} 
   Lat={metadata.lat} Lng={metadata.lng} 
   bearing={metadata.bearing} pitch={metadata.pitch} zoom={metadata.zoom} />
-
+  
 <HikeData 
-  title="Mailbox Peak via the Old Mailbox Peak trail"
-  alltrailsurl="https://www.alltrails.com/trail/us/washington/mailbox-peak-old-trail?u=i" 
-  wtaurl="https://www.wta.org/go-hiking/hikes/mailbox-peak-old-trail" 
+  title="Granite Mountain trail"
+  alltrailsurl="https://www.alltrails.com/trail/us/washington/granite-mountain-trail?u=i" 
+  wtaurl="https://www.wta.org/go-hiking/hikes/granite-mountain" 
   distance={metadata.distance} 
   elevation={metadata.elevation} 
   peakheight={metadata.peakheight} />
 
-<Image img={props.data} alt={metadata.title} description="View of the mailbox on Mailbox Peak" />
+<Image img={props.data} alt={metadata.title} description="Granite Mountain lookout/firetower" />
 
 export const query = graphql`
   {
     mountainImage: file(
-      name: {eq: "mailbox"}
+      name: {eq: "granitemntlookout"}
       ) {
       childImageSharp {
         gatsbyImageData
