@@ -21,7 +21,7 @@ Using React-Bootstrap
 
 ## Adding Images
 
-Found problem with some smaller images not loading, need to come up with a way to work.
+- issue: Found problem with some smaller images not loading, need to come up with a way to work.
 
 [Using the Gatsby Image plugin](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image)
 
@@ -46,3 +46,5 @@ Using the Static Images API [https://docs.mapbox.com/playground/static/](https:/
 ## Using MDX pages
 
 [Writing Pages in MDX Gatsbyjs docs](https://www.gatsbyjs.com/docs/mdx/writing-pages/)
+
+- issue: export const in mdx doesn't show up in a graphql query
