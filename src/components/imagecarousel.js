@@ -9,7 +9,7 @@ import Carousel from 'react-bootstrap/Carousel'
 const ImageCarousel = ( data ) => {
   const imgArray = data.img.allFile.nodes
     return (
-      <Container>
+      <Container className="mt-4">
         <Row>
         <Col>
         <Carousel fade>
