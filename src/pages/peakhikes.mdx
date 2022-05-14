@@ -8,6 +8,8 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Image from '../components/image'
 import SEO from '../components/seo'
+import { graphql } from "gatsby"
+import HikeList from '../components/hikelist'
 
 <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
 
@@ -15,17 +17,16 @@ import SEO from '../components/seo'
 
 What makes a peak hike a peak hike is the amount of physical exertion to climb to the top and the views when you get there.
 
-### Some of the Top Peak Hikes in PNW(i-90)
-  1. Mount Si
-  2. Mt Teneriffe
-  3. MailBox
-  4. Mount Defiance
-  5. McClellan Butte
-  6. Granite mountain lookout
-  7. Kaleetan Peak
-  8. Mount Washington 
-  9. Change Peak
-  10. Humpback Mountain
+<HikeList listTitle="Top I-90 Peak Hikes" hikePages={props.data.hikes.nodes} />
 
-
-
+export const query = graphql`
+  {
+    hikes: allSitePage(filter: {path: {glob: "/hikes/*"}}) {
+      nodes {
+        id
+        pageContext
+        path
+      }
+    }
+  },
+`
