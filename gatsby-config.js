@@ -17,7 +17,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-fontawesome-css`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
