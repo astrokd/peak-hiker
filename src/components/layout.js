@@ -45,6 +45,7 @@ const Layout = ({ children }) => (
             name="description"
             content="Create a React web app that uses Mapbox GL JS to render a map"
           />
+          <script src="https://kit.fontawesome.com/13b55edbfb.js" crossOrigin="anonymous"></script>
         </Helmet>
         <HeaderNav siteTitle={data.site.siteMetadata.title} sitePages={data.allSitePage.nodes}/>
         <Container>
