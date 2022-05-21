@@ -3,16 +3,12 @@ title: The Ten Essentials
 type: info
 ---
 
-export const essentials = ["NAVIGATION", "SUN PROTECTION", "INSULATION", "FIRST AID SUPPLIES"]
-
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
+import Icon from '../components/icon'
+import { graphql } from "gatsby"
 import SEO from '../components/seo'
 import ListGroup from 'react-bootstrap/ListGroup'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
-{/* <FontAwesomeIcon icon={regular('coffee')} /> */}
 
 <SEO title="The Ten Essentials" />
 
@@ -25,7 +21,9 @@ My list below is based of the National Park Service list found here: <a href="ht
 ### Categories
 
 <ListGroup as="ol" numbered>
-  <ListGroup.Item as="li">NAVIGATION</ListGroup.Item>
+  <ListGroup.Item as="li">
+    NAVIGATION <Icon icons={props.data} name="compass-svgrepo-com" alt="compass"/>
+  </ListGroup.Item>
   <ListGroup.Item as="li">SUN PROTECTION</ListGroup.Item>
   <ListGroup.Item as="li">INSULATION</ListGroup.Item>
   <ListGroup.Item as="li">ILLUMINATION</ListGroup.Item>
@@ -39,3 +37,16 @@ My list below is based of the National Park Service list found here: <a href="ht
 
 
 <Link to="/">Go back to the homepage</Link>
+
+export const query = graphql`
+  {
+    allFile(
+      filter: {dir: {eq: "/Users/kevindreyer/Dev/projects/peak-hiker/src/images/icons"}}
+    ) {
+      nodes {
+        name
+        publicURL
+      }
+    }
+  }
+`
