@@ -25,6 +25,7 @@ My list below is based of the National Park Service list found here: <a href="ht
     NAVIGATION  &nbsp;
     <Icon icons={props.data} name="compass-svgrepo-com" alt="compass" />
     <Icon icons={props.data} name="gps-svgrepo-com" alt="gps" />
+    <Icon icons={props.data} name="map-svgrepo-com" alt="map" />
   </ListGroup.Item>
   <ListGroup.Item as="li">
     SUN PROTECTION  &nbsp;
@@ -51,10 +52,12 @@ My list below is based of the National Park Service list found here: <a href="ht
   <ListGroup.Item as="li">
     FIRE  &nbsp;
     <Icon icons={props.data} name="lighter-svgrepo-com" alt="lighter" />
+    <Icon icons={props.data} name="matches-match-svgrepo-com" alt="matches" />
   </ListGroup.Item>
   <ListGroup.Item as="li">
     REPAIR TOOLS AND SUPPLIES  &nbsp;
     <Icon icons={props.data} name="swiss-army-knife-svgrepo-com 2" alt="knife" />
+    <Icon icons={props.data} name="tape-svgrepo-com" alt="ducttape" />
   </ListGroup.Item>
   <ListGroup.Item as="li">
     NUTRITION  &nbsp;
@@ -76,7 +79,7 @@ My list below is based of the National Park Service list found here: <a href="ht
 export const query = graphql`
   {
     allFile(
-      filter: {dir: {eq: "/Users/kevindreyer/Dev/projects/peak-hiker/src/images/icons"}}
+      filter: {ext: {eq: ".svg"}}
     ) {
       nodes {
         name
